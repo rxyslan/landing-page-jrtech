@@ -1,0 +1,384 @@
+/* Variáveis de Cores */
+:root {
+    --green-primary: #00BF63; /* Um verde vibrante */
+    --green-neon-start: #39FF14; /* Início do gradiente neon */
+    --green-neon-end: #00FF00;   /* Fim do gradiente neon */
+    --gray-light: #f9f9f9; /* Mais claro para seções */
+    --gray-medium: #e0e0e0;
+    --gray-dark: #333333;
+    --text-color: #444444; /* Um pouco mais escuro para melhor legibilidade */
+    --white: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.08); /* Sombra mais suave */
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+    scroll-behavior: smooth; /* Suaviza a rolagem para âncoras */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Padding horizontal para não colar nas bordas */
+}
+
+/* Seções Gerais */
+.section {
+    padding: 80px 0; /* Aumenta o espaçamento entre as seções */
+    text-align: center;
+    position: relative; /* Para possíveis elementos posicionados */
+}
+
+.section:nth-of-type(even) { /* Para alternar o fundo entre seções */
+    background-color: var(--gray-light);
+}
+
+h1, h2, h3 {
+    color: var(--gray-dark);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3.8em; /* Títulos maiores para destaque */
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: 2.8em;
+    margin-bottom: 40px; /* Mais espaço abaixo dos títulos de seção */
+}
+
+h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1.15em; /* Fonte um pouco maior para corpo de texto */
+    line-height: 1.7;
+}
+
+/* Botões */
+.btn-primary {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--green-neon-start), var(--green-neon-end));
+    color: var(--white);
+    padding: 18px 35px; /* Botões maiores e mais proeminentes */
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3em;
+    font-weight: 700; /* Mais bold */
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 25px var(--shadow-medium); /* Sombra mais forte */
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px); /* Efeito de levitação mais pronunciado */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--green-primary);
+    border: 2px solid var(--green-primary);
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--green-primary);
+    color: var(--white);
+    border-color: var(--green-primary); /* Garante que a borda mude junto */
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--green-primary) 0%, #00d984 100%); /* Gradiente mais suave */
+    color: var(--white);
+    padding: 120px 20px; /* Mais padding no topo */
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Para garantir que o gradiente e elementos não transbordem */
+}
+
+.hero-section h1 {
+    color: var(--white);
+    font-size: 4em; /* Ainda maior */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+}
+
+.hero-section p {
+    color: var(--white);
+    font-size: 1.4em;
+    margin-bottom: 50px; /* Mais espaço antes do botão */
+    opacity: 0.95;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.proof-social {
+    margin-top: 40px;
+    font-size: 1em;
+    opacity: 0.9;
+    font-weight: 600;
+}
+
+/* Product Section */
+.product-grid, .methods-grid, .testimonials-grid, .steps-grid {
+    display: grid;
+    gap: 40px; /* Mais espaçamento entre os itens */
+    margin-top: 60px;
+    justify-content: center;
+    align-items: start; /* Alinha os itens pelo topo */
+}
+
+.product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Itens maiores */
+}
+
+.product-item, .method-item, .testimonial-item, .step-item {
+    background-color: var(--white);
+    padding: 35px; /* Mais padding */
+    border-radius: 12px; /* Cantos mais arredondados */
+    box-shadow: 0 6px 20px var(--shadow-light); /* Sombra mais pronunciada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Garante que todos os cards tenham a mesma altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.product-item:hover, .method-item:hover, .testimonial-item:hover, .step-item:hover {
+    transform: translateY(-8px); /* Efeito de levitação mais forte */
+    box-shadow: 0 10px 25px var(--shadow-medium);
+}
+
+.product-item img, .method-item img, .step-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px; /* Borda da imagem mais arredondada */
+    object-fit: cover; /* Garante que a imagem preencha o espaço */
+}
+
+.product-item h3, .method-item h3, .step-item h3 {
+    color: var(--green-primary);
+    font-size: 1.6em; /* Títulos dos itens maiores */
+    margin-bottom: 10px;
+}
+.product-item p, .method-item p, .step-item p {
+    font-size: 1.05em;
+    margin-bottom: 0; /* Remove margem inferior para parágrafos dentro de itens */
+}
+
+
+/* Register Methods Section */
+.methods-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.method-item img {
+    width: 90px; /* Ícones maiores */
+    height: 90px;
+    object-fit: contain;
+    border: 3px solid var(--green-neon-start); /* Borda mais grossa com neon */
+    border-radius: 50%;
+    padding: 12px;
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.4); /* Brilho neon ao redor */
+}
+
+/* Success Cases Section */
+.testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.testimonial-item {
+    text-align: left;
+    border-left: 6px solid var(--green-neon-start); /* Borda mais grossa com neon */
+    padding-left: 25px; /* Aumenta o padding para a citação */
+    background-color: var(--white); /* Garante fundo branco para o card */
+}
+
+.testimonial-item p {
+    font-style: italic;
+    font-size: 1.15em;
+    color: var(--gray-dark);
+    margin-bottom: 15px;
+}
+
+.testimonial-item h4 {
+    font-weight: 700; /* Nome mais bold */
+    color: var(--green-primary);
+    font-size: 1.1em;
+}
+
+/* How It Works Section */
+.steps-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.step-item img {
+    width: 120px; /* Imagens de passo maiores */
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 25px;
+}
+
+/* Benefits Section */
+.benefits-list {
+    list-style: none;
+    text-align: left;
+    max-width: 800px;
+    margin: 40px auto 60px auto; /* Mais espaço */
+    padding-left: 0; /* Remove padding padrão da lista */
+}
+
+.benefits-list li {
+    font-size: 1.3em; /* Itens da lista maiores */
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start; /* Alinha o ícone e o texto no topo */
+    color: var(--gray-dark);
+}
+
+.benefits-list li .icon {
+    font-size: 1.8em; /* Ícone maior */
+    color: var(--green-neon-start);
+    margin-right: 20px;
+    line-height: 1;
+    flex-shrink: 0; /* Impede que o ícone diminua */
+}
+
+/* Footer */
+footer {
+    background-color: var(--gray-dark);
+    color: var(--white);
+    padding: 40px 20px; /* Mais padding no footer */
+    text-align: center;
+    font-size: 1em;
+}
+
+footer p {
+    margin: 0;
+    color: var(--white); /* Garante que o texto do footer seja branco */
+}
+
+/* Responsividade Aprimorada */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 3.2em;
+    }
+    h2 {
+        font-size: 2.4em;
+    }
+    .hero-section {
+        padding: 100px 20px;
+    }
+    .section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    h3 {
+        font-size: 1.5em;
+    }
+    p {
+        font-size: 1.05em;
+    }
+    .btn-primary, .btn-secondary {
+        padding: 15px 25px;
+        font-size: 1.1em;
+    }
+    .product-grid, .methods-grid, .testimonials-grid, .steps-grid {
+        gap: 25px;
+    }
+    .product-item, .method-item, .testimonial-item, .step-item {
+        padding: 25px;
+    }
+    .method-item img {
+        width: 70px;
+        height: 70px;
+    }
+    .step-item img {
+        width: 100px;
+        height: 100px;
+    }
+    .benefits-list li {
+        font-size: 1.1em;
+    }
+    .benefits-list li .icon {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    .hero-section {
+        padding: 80px 15px;
+    }
+    .section {
+        padding: 40px 0;
+    }
+    .container {
+        padding: 0 15px;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px; /* Limita a largura em telas pequenas */
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    .product-grid, .methods-grid, .testimonials-grid, .steps-grid {
+        grid-template-columns: 1fr;
+    }
+    .testimonial-item {
+        padding-left: 15px;
+    }
+}
+
+/* Efeito de gradiente neon nos botões e bordas de itens */
+/* Já incluído em .btn-primary e .method-item img, ajustado para ser mais visível */    
